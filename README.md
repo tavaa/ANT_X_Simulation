@@ -182,8 +182,7 @@ La funzione `dynamics()` implementa direttamente il sistema di **ODE** che descr
 
 <br/>
 
-$$
-\begin{cases}
+$$\begin{cases}
 
 \dot{x}_I =
 \dot x_B(\cos\theta\cos\psi)\,
@@ -255,8 +254,7 @@ M - (J_{xx}-J_{zz})pr
 N - (J_{yy}-J_{xx})pq
 \right)
 
-\end{cases}
-$$
+\end{cases}$$
 
 <br/>
 
