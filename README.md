@@ -190,7 +190,7 @@ $$\begin{cases}
 \dot y_B(\sin\phi\sin\theta\cos\psi - \cos\phi\sin\psi)\,
 +
 \dot z_B (\cos\phi\sin\theta\cos\psi + \sin\phi\sin\psi)\,
-\\[0.8em]
+\\
 
 \dot{y}_I =
 \dot x_B(\cos\theta\sin\psi)\,
@@ -198,7 +198,7 @@ $$\begin{cases}
 \dot y_B (\sin\phi\sin\theta\sin\psi + \cos\phi\cos\psi)\,
 +
 \dot z_B (\cos\phi\sin\theta\sin\psi - \sin\phi\cos\psi)\,
-\\[0.8em]
+\\
 
 \dot{z}_I =
 -\dot x_B\sin\theta\,
@@ -206,47 +206,47 @@ $$\begin{cases}
 \dot y_B\sin\phi\cos\theta\,
 +
 \dot z_B\cos\phi\cos\theta\,
-\\[0.8em]
+\\
 
 \ddot{x}_B =
 r\,\dot y_B - q\,\dot z_B - g\sin\theta
-\\[0.8em]
+\\
 
 \ddot{y}_B =
 p\,\dot z_B - r\,\dot x_B + g\sin\phi\cos\theta
-\\[0.8em]
+\\
 
 \ddot{z}_B =
 q\,\dot x_B - p\,\dot y_B + g\cos\phi\cos\theta - \frac{T}{m}
-\\[0.8em]
+\\
 
 \dot{\phi} =
 p + \sin\phi\tan\theta\,q + \cos\phi\tan\theta\,r
-\\[0.8em]
+\\
 
 \dot{\theta} =
 \cos\phi\,q - \sin\phi\,r
-\\[0.8em]
+\\
 
 \dot{\psi} =
 \frac{\sin\phi}{\cos\theta}\,q
 +
 \frac{\cos\phi}{\cos\theta}\,r
-\\[0.8em]
+\\
 
 \dot{p} =
 \frac{1}{J_{xx}}
 \left(
 L - (J_{zz}-J_{yy})qr
 \right)
-\\[0.8em]
+\\
 
 \dot{q} =
 \frac{1}{J_{yy}}
 \left(
 M - (J_{xx}-J_{zz})pr
 \right)
-\\[0.8em]
+\\
 
 \dot{r} =
 \frac{1}{J_{zz}}
@@ -493,11 +493,11 @@ $$
 
 \dot{\phi} =
 p + \sin\phi\tan\theta\,q + \cos\phi\tan\theta\,r
-\\[0.8em]
+\\
 
 \dot{\theta} =
 \cos\phi\,q - \sin\phi\,r
-\\[0.8em]
+\\
 
 \dot{\psi} =
 \frac{\sin\phi}{\cos\theta}\,q
@@ -555,14 +555,14 @@ $$
 \left(
 L - (J_{zz}-J_{yy})qr
 \right)
-\\[0.8em]
+\\
 
 \dot{q} =
 \frac{1}{J_{yy}}
 \left(
 M - (J_{xx}-J_{zz})pr
 \right)
-\\[0.8em]
+\\
 
 \dot{r} =
 \frac{1}{J_{zz}}
@@ -864,21 +864,21 @@ A_{lin} =
 \frac{\partial \dot p_I}{\partial \alpha} &
 \frac{\partial \dot p_I}{\partial \omega_B}
 
-\\[0.8em]
+\\
 
 \frac{\partial \dot v_B}{\partial p_I} &
 \frac{\partial \dot v_B}{\partial v_B} &
 \frac{\partial \dot v_B}{\partial \alpha} &
 \frac{\partial \dot v_B}{\partial \omega_B}
 
-\\[0.8em]
+\\
 
 \frac{\partial \dot \alpha}{\partial p_I} &
 \frac{\partial \dot \alpha}{\partial v_B} &
 \frac{\partial \dot \alpha}{\partial \alpha} &
 \frac{\partial \dot \alpha}{\partial \omega_B}
 
-\\[0.8em]
+\\
 
 \frac{\partial \dot \omega_B}{\partial p_I} &
 \frac{\partial \dot \omega_B}{\partial v_B} &
