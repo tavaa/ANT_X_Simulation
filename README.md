@@ -145,7 +145,7 @@ La formulazione adottata utilizza:
 
 Lo **stato** del sistema è definito da:
 
-$$ [x_I, y_I, z_I, \dot x_B, \dot y_B, \dot z_B, \phi, \theta, \psi, p, q, r ] \in \R^{12} $$
+$$ [x_I, y_I, z_I, \dot x_B, \dot y_B, \dot z_B, \phi, \theta, \psi, p, q, r ] \in \mathbb{R}^{12} $$
 
 dove:
 
@@ -156,7 +156,7 @@ dove:
 
 Gli **ingressi** del modello corrispondono invece a:
 
-$$ [T, L, M, N] \in \R^4$$
+$$ [T, L, M, N] \in \mathbb{R}^4$$
 
 dove:
 
@@ -2024,7 +2024,7 @@ B_{lin} =
 \frac{\partial f}{\partial u}
 $$
 
-linearizzate attorno alla traiettoria nominale corrente, stato misurato di $x \in \R ^ {12}$ o $\R^{13}$.
+linearizzate attorno alla traiettoria nominale corrente, stato misurato di $x \in \mathbb{R} ^ {12}$ o $\mathbb{R}^{13}$.
 
 Successivamente il modello viene discretizzato mediante integrazione di Eulero e calcolando:
 
@@ -2103,7 +2103,7 @@ per ogni passo dell'orizzonte. L'ottimizzazione viene infine risolta tramite il 
 Una volta ottenuta la soluzione ottima, vengono estratti gli stati e gli input predetti. Solamente il primo ingresso
 
 $$
-u_0^\star \in \R^4
+u_0^\star \in \mathbb{R}^4
 $$
 
 viene applicato al sistema non-lineare.
@@ -2215,7 +2215,7 @@ In particolare:
 
 * **errore complessivo di stato**:
   $$
-  e_x = |x - x_{ref}| \ s.t. \ x  \in \R^{12}
+  e_x = |x - x_{ref}| \ s.t. \ x  \in \mathbb{R}^{12}
   $$
 
 * **errore sugli input**:
