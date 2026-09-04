@@ -10,6 +10,21 @@
 
 ---
 
+> **🚀 Version 2 — Major Updates**
+>
+> V2 contains updated version of the original MATLAB simulation pipeline. Compared with **v1**, the main changes are:
+>
+> * **Trajectory recalibration** — Updated trajectory parameters for more regular profiles and better compatibility with the laboratory flight volume.
+> * **Improved PWC reference generation** — Replaced pointwise input sampling with the **exact integral average of the continuous input** over each sampling interval, reducing bias in higher-order derivatives.
+> * **16-state nonlinear model** — Introduced a new model including **first-order motor dynamics and individual rotor thrust states**.
+> * **Motor allocation and mixer** — Added explicit **allocation and mixer matrices**, including the conversion between virtual thrust/moments and individual rotor thrusts.
+> * **Parameter identification framework** — Added a preliminary parameter estimation procedure and a detailed experimental identification procedure intended for laboratory deployment.
+> * **Updated MPC formulation** — Replaced `quadprog` with **OSQP**, introduced direct physical constraints on individual rotor thrusts, systematically defined the weighting matrices, and adopted **exact ZOH discretization**.
+> * **More realistic closed-loop simulation** — Added **actuation/computation latency** and **3-second hover tails** for Perturbation and Origin initial conditions, making the simulations more representative of the planned flight tests.
+> * **Extended validation** — Added quantitative tracking, computational-performance, and motor-allocation checks for the updated B01 formulation.
+
+
+
 ## Introduction
 
 This repository contains the first MATLAB simulation pipeline for the [ANT-X](https://ant-x.gitlab.io) UAV.
@@ -53,15 +68,29 @@ addpath(genpath('.'))
 
 ### 3. Run open-loop tests (DoF validation)
 
-From `scripts/` folder run `OpenLoopTest_DoF.m` Matlab script.
+```matlab
+% Individual degree-of-freedom tests
+run('scripts/openloop/run_pitch_test.m')
+run('scripts/openloop/run_roll_test.m')
+run('scripts/openloop/run_thrust_test.m')
+run('scripts/openloop/run_yaw_test.m')
+```
 
 ### 4. Run open-loop trajectory tests
 
-From `scripts/` folder run `OpenLoop<Shape>.m` Matlab script for each trajectory.
+```matlab
+% Circle, Lemniscate, Spiral — continuous vs PWC comparison
+run('scripts/openloop/run_circle_openloop.m')
+run('scripts/openloop/run_lemniscate_openloop.m')
+run('scripts/openloop/run_spiral_openloop.m')
+```
 
 ### 5. Run closed-loop MPC simulations
 
-From `scripts/` folder run `MPCSimulationLoop.m` Matlab script the simulation loop.
+```matlab
+% Full closed-loop: all trajectories × all initial conditions
+run('scripts/MPCSimulationLoop.m')
+```
 
 Results are saved to `results/<trajectory>/<initial_condition>/`.
 
