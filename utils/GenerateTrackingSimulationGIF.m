@@ -1,6 +1,6 @@
 % Generates a GIF for MPC tracking
 
-function GenerateTrackingSimulationGIF(log_states, x_ref_pwc, gif_filename, title_str, mode, mp)
+function GenerateTrackingSimulationGIF(log_states, x_ref_pwc, gif_filename, title_str, mode, mp, PlotDrone)
 
     % States
     X_sim = log_states(:, 2);
