@@ -43,7 +43,7 @@ classdef TrajectoryParameters
         % Circular trajectory
         Circle = struct( ...
             'R', 1.0, ...                % [m] Radius
-            'omega', 1.0, ...            % [rad/s] Angular speed
+            'omega', 0.5, ...            % [rad/s] Angular speed
             'z_height', -1.0, ...        % [m] NED alt
             'center', [0.0; 0.0] ...    % [m] XY center
         );
@@ -66,10 +66,10 @@ classdef TrajectoryParameters
 
         %% 3D Shapes - XYZ
         Spiral = struct( ...
-            'Rx', 2.0, ...               % [m] X-axis radius
+            'Rx', 1.5, ...               % [m] X-axis radius
             'Ry', 1.0, ...               % [m] Y-axis radius
             'omega', 0.5, ...            % [rad/s] Angular speed
-            'vz', 0.2, ...               % [m/s] Climb rate
+            'vz', 0.075, ...               % [m/s] Climb rate
             'z_start', -0.5 ...         % [m] NED start alt
         );
 
@@ -80,7 +80,7 @@ classdef TrajectoryParameters
         T_duration_roll       = (2*pi / 1.0);     % 1 period
         T_duration_yaw        = (2*pi / 1.0);     % 1 period
         T_duration_thrust     = (2*pi / 1.0);     % 1 period
-        T_duration_circle     = (1 * 2 *pi / 1.0);     % 1 lap
+        T_duration_circle     = (1 * 2 *pi / 0.5);     % 1 lap
         T_duration_lemniscate = (1 * 2 * pi / 0.5);     % 1 figure-8 lap
         T_duration_lemniscate2 = (1 * 2 * pi / 0.5);     % 1 figure-8 lap
         T_duration_spiral     = (4*pi / 0.5);     % 2 revolutions
