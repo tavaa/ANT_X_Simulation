@@ -4,6 +4,9 @@ classdef TrajectoryParameters
     
     properties (Constant)
 
+        %% LAP DURATION [s]
+        T_lap = 12.6;  
+
         %% HOVER
         Hover = struct( ...
             'pos', [0.0; 0.0; -1.0], ... % [m] NED pos (1m up)
@@ -43,15 +46,15 @@ classdef TrajectoryParameters
         % Circular trajectory
         Circle = struct( ...
             'R', 1.0, ...                % [m] Radius
-            'omega', 0.5, ...            % [rad/s] Angular speed
+            'omega', 2*pi/TrajectoryParameters.T_lap, ...            % [rad/s] Angular speed
             'z_height', -1.0, ...        % [m] NED alt
-            'center', [0.0; 0.0] ...    % [m] XY center
+            'center', [0.0; 0.0] ...     % [m] XY center
         );
         
         % Lemniscate trajectory
         Lemniscate = struct( ...
             'R', 1.0, ...                % [m] Max amplitude scale
-            'omega', 0.5, ...            % [rad/s] Angular speed
+            'omega', 2*pi/TrajectoryParameters.T_lap, ...            % [rad/s] Angular speed
             'z_height', -1.0, ...        % [m] NED alt
             'center', [0.0; 0.0] ...     % [m] XY center
         );
@@ -59,19 +62,32 @@ classdef TrajectoryParameters
         % Lemniscate2 trajectory
         Lemniscate2 = struct( ...
             'R', 1.0, ...                % [m] Max amplitude scale
-            'omega', 0.5, ...            % [rad/s] Angular speed
+            'omega', 2*pi/TrajectoryParameters.T_lap, ...            % [rad/s] Angular speed
             'z_height', -1.0, ...        % [m] NED alt
             'center', [0.0; 0.0] ...     % [m] XY center
         );
 
         %% 3D Shapes - XYZ
+        % Spiral Trajectory
         Spiral = struct( ...
             'Rx', 1.5, ...               % [m] X-axis radius
             'Ry', 1.0, ...               % [m] Y-axis radius
-            'omega', 0.5, ...            % [rad/s] Angular speed
-            'vz', 0.075, ...               % [m/s] Climb rate
-            'z_start', -0.5 ...         % [m] NED start alt
+            'omega', 2*pi/TrajectoryParameters.T_lap, ...            % [rad/s] Angular speed
+            'vz', 0.075, ...             % [m/s] Climb rate
+            'z_start', -0.5 ...          % [m] NED start alt
         );
+
+        % 3D Lissajous trajectory 
+        Lissajous3D = struct( ... 
+            'Ax', 1.0, ... % [m] X amplitude 
+            'Ay', 0.5, ... % [m] Y amplitude 
+            'Az', 0.20, ... % [m] Z amplitude 
+            'omega', 2*pi/TrajectoryParameters.T_lap, ... % [rad/s] Angular speed 
+            'z_height', -1.0, ... % [m] Mean NED altitude
+            'psi0', 0.0, ... % [rad] Initial heading 
+            'center', [0.0; 0.0] ... % [m] XY center 
+         );
+
 
         %% SIMULATION DURATIONS [s]
         % T = (n_laps * 2*pi) / omega
@@ -80,10 +96,11 @@ classdef TrajectoryParameters
         T_duration_roll       = (2*pi / 1.0);     % 1 period
         T_duration_yaw        = (2*pi / 1.0);     % 1 period
         T_duration_thrust     = (2*pi / 1.0);     % 1 period
-        T_duration_circle     = (1 * 2 *pi / 0.5);     % 1 lap
-        T_duration_lemniscate = (1 * 2 * pi / 0.5);     % 1 figure-8 lap
-        T_duration_lemniscate2 = (1 * 2 * pi / 0.5);     % 1 figure-8 lap
-        T_duration_spiral     = (4*pi / 0.5);     % 2 revolutions
+        T_duration_circle      = 2 * TrajectoryParameters.T_lap;   % N_laps * circle lap
+        T_duration_lemniscate  = 2 * TrajectoryParameters.T_lap;   % N_laps * figure-8 lap
+        T_duration_lemniscate2 = 2 * TrajectoryParameters.T_lap;   % N_laps * figure-8 lap
+        T_duration_spiral      = 2 * TrajectoryParameters.T_lap;   % N_laps * spiral lap
+        T_duration_lissajous3D = 2 * TrajectoryParameters.T_lap;   % N_laps * lissajous lap
         
     end
 end
